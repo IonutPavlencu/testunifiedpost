@@ -1,0 +1,30 @@
+<%- model_class = Form -%>
+<div class="page-header">
+  <h1>List of subscriptions</h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:firstname) %></th>
+      <th><%= model_class.human_attribute_name(:lastname) %></th>
+      <th><%= model_class.human_attribute_name("Country") %></th>
+      <th><%= model_class.human_attribute_name(:city) %></th>
+      <th><%= model_class.human_attribute_name("Subscribded at") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @forms.each do |form| %>
+      <tr>
+        <td><%= link_to form.id, form_path(form) %></td>
+        <td><%= form.firstname %></td>
+        <td><%= form.lastname %></td>
+        <td><%= form.country_id %></td>
+        <td><%= form.city %></td>
+        <td><%= form.created_at.strftime("%d-%m-%Y") %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+

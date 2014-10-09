@@ -1,0 +1,13 @@
+<%= simple_form_for @form, :html => { :class => 'form-horizontal' } do |f| %>
+<div>
+  <%= f.input :firstname, label: "First name:" %>
+  <%= f.input :lastname ,label: "Last name:"%>
+  <%= f.input :email, label: "E-mail:"  %>
+  <%= f.input :email_confirmation, label: "Confirm e-mail:"  %>
+  <%= f.input :country_id, as: :country, label: "Select country:"%>
+  <%= f.input :city  ,label: "City:" %>
+  </div>
+  <div class="form-actions">
+    <%= f.button :submit,"Subscribe" ,:class => 'btn-primary' %>
+  </div>
+<% end %>

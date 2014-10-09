@@ -1,0 +1,29 @@
+<%- model_class = Form -%>
+<div class="page-header">
+  <h1>Please review youre subscription details</h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name("First Name") %>:</strong></dt>
+  <dd><%= @form.firstname %></dd>
+  <dt><strong><%= model_class.human_attribute_name("Last Name") %>:</strong></dt>
+  <dd><%= @form.lastname %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:email) %>:</strong></dt>
+  <dd><%= @form.email %></dd>
+  <dt><strong><%= model_class.human_attribute_name("Country") %>:</strong></dt>
+  <dd><%= @form.country_id %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:city) %>:</strong></dt>
+  <dd><%= @form.city %></dd>
+</dl>
+
+<div class="form-actions">
+  <%= link_to "Confirm details",
+              confirmation_form_path(@form), :class => 'btn'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_form_path(@form), :class => 'btn' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              form_path(@form),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>
